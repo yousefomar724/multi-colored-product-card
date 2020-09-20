@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <title>product-card(shoe)</title>
+</head>
+<body>
+    <div class="product-card">
+        <h1>Original Shoes</h1>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+
+        <div class="product-pic"><img src="img/1.png">
+        </div>
+
+        <div class="product-colors">
+            <span class="blue active" data-color="#03A9F4" data-pic="url(img/1.png)"></span>
+            <span class="green" data-color="#4CAF50" data-pic="url(img/2.png)"></span>
+            <span class="yellow" data-color="#FFC107" data-pic="url(img/3.png)"></span>
+            <span class="rose" data-color="#ff7979" data-pic="url(img/4.png)"></span>
+        </div>
+
+        <div class="product-info">
+            <div class="product-price">$90</div>
+            <a href="#" class="product-btn">Add to Cart</a>
+        </div>
+    </div>
+
+    <script>
+        let colorSpan = Array.from(document.querySelectorAll(".product-colors span"));
+
+        let blue = document.querySelector(".blue");
+        let green = document.querySelector(".green");
+        let yellow = document.querySelector(".yellow");
+        let rose = document.querySelector(".rose");
+        let body = document.querySelector("body");
+        let productPrice = document.querySelector(".product-price");
+        let productBtn = document.querySelector(".product-btn");
+        let productImg = document.querySelector(".product-pic img");
+        let heading = document.querySelector(".product-card h1");
+
+        function blueMode() {
+            colorSpan.forEach(function(attr){
+                attr.classList.remove("active");
+            })
+
+            this.classList.add("active");
+            body.style.background = "#03A9F4";
+            heading.style.color = "#03A9F4";
+            productPrice.style.color = "#03A9F4";
+            productBtn.style.color = "#03A9F4";
+            productImg.src = "img/1.png";
+        }
+
+        function greenMode() {
+            colorSpan.forEach(function(attr){
+                attr.classList.remove("active");
+            })
+
+            this.classList.add("active");
+            body.style.background = "#4CAF50";
+            heading.style.color = "#4CAF50";
+            productPrice.style.color = "#4CAF50";
+            productBtn.style.color = "#4CAF50";
+            productImg.src = "img/2.png"
+        }
+
+        function yellowMode() {
+            colorSpan.forEach(function(attr){
+                attr.classList.remove("active");
+            })
+
+            this.classList.add("active");
+            body.style.background = "#FBC02D";
+            heading.style.color = "#FFC107";
+            productPrice.style.color = "#FFC107";
+            productBtn.style.color = "#FFC107";
+            productImg.src = "img/3.png"
+        }
+
+        function roseMode() {
+            colorSpan.forEach(function(attr){
+                attr.classList.remove("active");
+            })
+
+            this.classList.add("active");
+            body.style.background = "#ff7979";
+            heading.style.color = "#ff7979";
+            productPrice.style.color = "#ff7979";
+            productBtn.style.color = "#ff7979";
+            productImg.src = "img/4.png"
+        }
+
+        colorSpan[0].onclick = blueMode;
+        colorSpan[1].onclick = greenMode;
+        colorSpan[2].onclick = yellowMode;
+        colorSpan[3].onclick = roseMode;
+    </script>
+</body>
+</html>
